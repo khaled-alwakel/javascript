@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        DOM [Create Elements]
+        - createElement
+        - createComment
+        - createTextNode
+        - createAttribute
+        - appendChild
+        */
+
+        let myElement = document.createElement("div");
+        let myAttr = document.createAttribute("data-custom"); // set empty attribute and you can change it later 
+        let myText = document.createTextNode("Product One");
+        let myComment = document.createComment("This Is Div");
+
+        myElement.className = "product";
+        myElement.setAttributeNode(myAttr); // i can change it later 
+        myElement.setAttribute("data-test", "Testing"); // like set setAttributeNode
+
+        // Append Comment To Element
+        myElement.appendChild(myComment);
+
+        // Append Text To Element
+        myElement.appendChild(myText);
+
+        // Append Element To Body
+        document.body.appendChild(myElement);
+
+        //style
+        
+    </script>
+</body>
+</html>

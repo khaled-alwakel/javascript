@@ -1,0 +1,7 @@
+* design patterns :
+is a general reusable solutions to commonly occurring problem  within givin context in software design 
+
+* why we use design patterns:
+1: make code clean
+2: easy to use and read
+3: less buggy and less error

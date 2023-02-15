@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="sec01">section one</section>
+    <section id="sec02">section two</section>
+    <script>
+        /*
+        BOM [Browser Object Model]
+        - location Object
+        --- href Get / Set [URL || Hash || File || Mail]
+        --- host
+        --- hash
+        --- protocol
+        --- reload()
+        --- replace() [REPLACE PAGE WITH NEW URL FROM HISTORY]
+        --- assign()  [NEW URL BUT DON'T DELETE ENTRY FROM HISTORY]
+        */
+
+        console.log(location);
+        console.log(location.href); // my pc E
+
+        //* *href don't delete entry from history 
+
+         //location.href = "https://google.com";   
+         //location.href = "/#sec02";
+        //location.href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript#reference";
+
+        // console.log(location.host);  get name of site and port 
+        // console.log(location.hostname); site name only 
+
+        // console.log(location.protocol);
+
+        // console.log(location.hash);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        button{
+            position: fixed;
+            bottom: 10px;
+            right:10px;
+            background:blueviolet;
+            color:#fff;
+            border:none;
+            width:40px;
+            height:40px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <button>up</button>
+<script>
+    /*
+        BOM [Browser Object Model]
+        - stop()
+        - print()
+        - focus()
+        - scrollTo(x, y || Options) go to same position every time 
+        - scroll(x, y || Options)
+        - scrollBy(x, y || Options) got by x and y value from last position.. incremented  ok ? 
+        */
+
+        // let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
+
+         //window.scrollTo({
+           //left: 500,
+           //top: 500,
+           //behavior: "smooth"
+       // });
+
+        /// practice
+        /*
+        BOM [Browser Object Model]
+        - Practice => Scroll To Top
+        - scrollX [Alias => PageXOffset]
+        - scrollY [Alias => PageYOffset]
+        */
+
+        // console.log(window.scrollX === window.pageXOffset);
+
+        let btn = document.querySelector("button");
+
+        window.onscroll = function () {
+        if (window.scrollY >= 900) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+        };
+
+        btn.onclick = function () {
+        window.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth",
+        });
+        };
+</script>
+</body>
+</html>

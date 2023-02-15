@@ -1,0 +1,42 @@
+[
+    {
+        "id" : 1,
+        "title": "take risk or take rest",
+        "body": "\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"",
+        "category" : "motivation",
+        "author": "alice crew"
+      
+    },
+    {
+        "id" : 2,
+        "title": "love and hate",
+        "body": "\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"",
+        "category" : "romance",
+        "author": "bob hawkins"
+      
+    },
+    {
+        "id" : 3,
+        "title": "dark nights",
+        "body": "\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"",
+        "category" : "thriller",
+        "author": "charlie anderson"
+      
+    },
+    {
+        "id" : 4,
+        "title": "mafia",
+        "body": "\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"",
+        "category" : "action",
+        "author": "tom hardy"
+      
+    },
+    {
+        "id" : 5,
+        "title": "bob's adventures",
+        "body": "\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"",
+        "category" : "adventures",
+        "author": "jerry barker"
+      
+    }
+]

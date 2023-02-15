@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">button</button>
+    <hr/>
+    <form action="">
+        <input type="text"/>
+        <input type="submit" value="Submit Data">
+    </form>
+    <script>
+        /*
+  DOM [Events]
+  - Use Events On HTML
+  - Use Events On JS
+  --- onclick
+  --- oncontextmenu
+  --- onmouseenter
+  --- onmouseleave
+
+  --- onload
+  --- onscroll
+  --- onresize
+
+  --- onfocus
+  --- onblur
+  --- onsubmit
+*/
+
+let myBtn = document.getElementById("btn");
+
+myBtn.onmouseleave = function () {
+  console.log("Clicked");
+};
+
+window.onresize = function () {
+  console.log("Scroll");
+};
+    </script>
+</body>
+</html>

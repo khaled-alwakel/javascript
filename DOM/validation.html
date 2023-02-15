@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" name="username" placeholder="max 10 chars only">
+        <input type="text " name="age" placeholder="cant be empty">
+        <input type="submit" value="submit data">
+    </form>
+    <a href="http://google.com">Google</a>
+    <script>
+        /*
+        DOM [Events]
+        - Validate Form Practice
+        - Prevent Default
+        */
+
+        let userInput = document.querySelector("[name='username']");
+        let ageInput = document.querySelector("[name='age']");
+
+        document.forms[0].onsubmit = function (e) {
+            let userValid = false; //initial case 
+            let ageValid = false;
+
+            if (userInput.value !== "" && userInput.value.length <= 10) {
+                userValid = true;
+            }
+
+            if (ageInput.value !== "") {
+                ageValid = true;
+            }
+
+            if (userValid === false || ageValid === false) {
+                e.preventDefault();
+            }
+        };
+
+        document.links[0].onclick = function (event) {
+            console.log(event);
+            event.preventDefault();
+        };
+    </script>
+</body>
+</html>

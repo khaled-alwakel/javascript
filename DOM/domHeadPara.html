@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        DOM [Create Elements]
+        - Practice Product With Heading And Paragraph
+        */
+
+        for (let i = 0; i<4; i++){
+
+            let myMainElement = document.createElement("div");
+            let myHeading = document.createElement("h2");
+            let myParagraph = document.createElement("p");
+            let myParagraph2 = document.createElement("p");
+            
+            let myHeadingText = document.createTextNode(`product ${i+1}`);
+            let myParagraphText = document.createTextNode("product description");
+            let myParagraphText2 = document.createTextNode("another description");
+
+            
+            myMainElement.className = "product";
+            myParagraph.className = "desc";
+            myParagraph2.className = "desc2";
+            
+    
+            // Append mainElement To Body
+            document.body.appendChild(myMainElement);
+    
+            //add heading to my main element
+            myMainElement.appendChild(myHeading);
+    
+            //add heading text
+            myHeading.appendChild(myHeadingText);
+    
+            // add paragraph to main element
+            myMainElement.appendChild(myParagraph);
+            myMainElement.appendChild(myParagraph2);
+            
+            // add paragraph text
+            myParagraph.appendChild(myParagraphText);
+            myParagraph2.appendChild(myParagraphText2);
+        }
+
+        // style
+        document.body.style=
+        `   background-color:#eee;
+            display:flex;
+            flex-wrap:wrap;
+            align-content:center
+        `
+
+        let products = document.querySelectorAll(".product");
+        for(let j=0; j<products.length; j++){
+            products[j].style = 
+            `
+                background-color:#fff;
+                color:#222;
+                border:2px solid #111;
+                text-align:center;
+                width:300px;
+                margin:50px auto;
+                font-weight:bold;
+                box-shadow:4px 4px #222;
+                border-radius:20px;
+                text-transform:capitalize;
+                font-family:courier,serif;
+            `
+        };
+
+        let desc = document.querySelectorAll(".desc");
+        for(let j=0; j<desc.length; j++){
+            desc[j].style = "color:red;font-size:18px"
+        }
+        let desc2 = document.querySelectorAll(".desc2");
+        for(let j=0; j<desc2.length; j++){
+            desc2[j].style = "color:green;font-size:18px"
+        }
+    </script>
+</body>
+</html>

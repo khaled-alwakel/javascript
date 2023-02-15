@@ -1,0 +1,10 @@
+- Where To Use Stack :
+    1. managing function invocation 
+    2. undo / redo
+    3. Routing (the history object)
+
+- BIG O of Stack :
+    Insertion  => O (n)  
+    Removal    => O (1)
+    Searching  => O (n)
+    Access     => O (n)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Stop</button>
+    <script>
+        
+
+/*
+  BOM [Browser Object Model]
+  - alert(Message) => Need No Response Only Ok Available
+  - confirm(Message) => Need Response And Return A Boolean
+  - prompt(Message, Default Message) => Collect Data
+*/
+
+// alert("Test");
+// console.log("Test");
+
+// let confirmMsg = confirm("Are You Sure?");
+
+// console.log(confirmMsg);
+
+// if (confirmMsg === true) {
+//   console.log("Item Deleted");
+// } else {
+//   console.log("Item Not Deleted");
+// }
+// 
+ let promptMsg = prompt("Good Day To You?", "Write Day With 3 Characters");
+
+ console.log(promptMsg);
+//==========================
+/*
+  *BOM [Browser Object Model]
+  * setTimeout(Function, Timeout, Additional Params)
+  * clearTimeout(Identifier)
+*/
+
+// setTimeout(function () {
+//   console.log("Msg");
+// }, 3000);
+
+// setTimeout(sayMsg, 3000);
+
+// function sayMsg() {
+//   console.log(`Iam Message`);
+// }
+
+// setTimeout(sayMsg, 3000, "Osama", 38);
+
+// function sayMsg(user, age) {
+//   console.log(`Iam Message For ${user} Age Is : ${age}`);
+// }
+
+let btn = document.querySelector("button");
+
+let counter = setTimeout(sayMsg, 3000, "Osama", 38);
+
+btn.onclick = function () { 
+  clearTimeout(counter);
+};
+
+function sayMsg(user, age) {
+  console.log(`Iam Message For ${user} Age Is : ${age}`);
+}
+//-----------------------------------------------------------------------------
+    </script>
+</body>
+</html>

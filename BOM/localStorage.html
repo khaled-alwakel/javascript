@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+    BOM [Browser Object Model]
+    Local Storage
+    - setItem
+    - getItem
+    - removeItem
+    - clear
+    - key
+
+    Info
+    - No Expiration Time
+    - HTTP And HTTPS
+    - Private Tab
+    */
+
+    // Set
+    window.localStorage.setItem("color", "#F00"); // key value
+    window.localStorage.fontWeight = "bold"; // set with dot notation
+    window.localStorage["fontSize"] = "20px"; // set with bracket notation
+
+    // Get
+    console.log(window.localStorage.getItem("color"));
+    console.log(window.localStorage.color);
+    console.log(window.localStorage["color"]);
+
+    // Remove One
+     //window.localStorage.removeItem("color");
+
+    // Remove All
+    // window.localStorage.clear();
+
+    // Get Key
+    console.log(window.localStorage.key(0));
+
+    // Set Color In Page
+    document.body.style.backgroundColor = window.localStorage.getItem("color");
+
+    console.log(window.localStorage);
+    console.log(typeof window.localStorage);
+    </script>
+</body>
+</html>

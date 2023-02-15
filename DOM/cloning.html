@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="my-p" class="my-p">this is <span>p</span></p>
+    <script>
+        /*
+        DOM [Cloning]
+        - cloneNode(Deep)
+        */
+
+        let myP = document.querySelector("p").cloneNode(true); //  [clone with all attributes ]false is default when false it wont take elements within
+        let myDiv = document.querySelector("div");
+
+        myP.id = `${myP.id}-clone`; // change id to avoid conflict between the two elements ${old}add what u  like after it 
+        
+        myDiv.appendChild(myP);
+    </script>
+</body>
+</html>

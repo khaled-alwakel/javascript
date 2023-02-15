@@ -1,0 +1,163 @@
+
+[Benefits Of OOP Diagram]
+
+  * Encapsulation => reduce complexity + increase reusability
+  * Abstraction => reduce complexity + isolate impact of changes
+  * Inheritance => eliminate redundant code - but when i should use inheritance ? when you see all objects share the same method 
+  * Polymorphism => refactor ugly switch/case statements 
+----------------------------------------------------------
+
+let Bird = function(name, color) {
+this.name = name;
+this.color = color;
+this.numLegs = 2;
+}
+
+let crow = new Bird("Alexis", "black");
+
+
+-- Since numLegs will probably have the same value for all instances of Bird, you essentially have a duplicated variable numLegs inside each Bird instance
+
+-- This may not be an issue when there are only two instances, but imagine if there are millions of instances. That would be a lot of duplicated variables
+
+-- A better way is to use the prototype of Bird. Properties in the prototype are shared among ALL instances of Bird. Here's how to add numLegs to the Bird prototype
+
+* Bird.prototype.numLegs = 2
+
+* Now all instances of Bird have the numLegs property
+
+console.log(duck.numLegs); // 2
+console.log(canary.numLegs); // 2
+
+-- Since all instances automatically have the properties on the prototype, think of a 
+prototype as a "recipe" for creating objects. Note that the prototype for duck and - canary is part of the Bird constructor as Bird.prototype. Nearly every object in - JavaScript has a prototype property which is part of the constructor function that created it.
+-------------------------------------------------------------------
+# Change the Prototype to a New Object
+# Up until now you have been adding properties to the prototype individually:
+
+# Bird.prototype.numLegs = 2;
+# This becomes tedious after more than a few properties.
+
+Bird.prototype.eat = function() {
+console.log("nom nom nom");
+}
+
+Bird.prototype.describe = function() {
+console.log("My name is " + this.name);
+}
+----------------------------------------------------------------------------
+# A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
+
+Bird.prototype = {
+numLegs: 2, 
+eat: function() {
+  console.log("nom nom nom");
+},
+describe: function() {
+  console.log("My name is " + this.name);
+}
+};
+--------------------------------------------------------------------
+- BE CARFULL
+
+-- There is one crucial side effect of manually setting the prototype to a new object. It erases the constructor property! This property can be used to check which constructor function created the instance, but since the property has been overwritten, it now gives false results:
+
+- FIX
+
+# ==>> [ To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property ]
+
+Bird.prototype = {
+constructor: Bird,
+numLegs: 2,
+eat: function() {
+  console.log("nom nom nom");
+},
+describe: function() {
+  console.log("My name is " + this.name); 
+}
+};
+------------------------------------------------------------------------------
+# Override Inherited Methods
+In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
+
+# ChildObject.prototype = Object.create(ParentObject.prototype);
+
+Then the ChildObject received its own methods by chaining them onto its prototype:
+
+# ChildObject.prototype.methodName = function() {...};
+
+It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
+
+function Animal() { }
+Animal.prototype.eat = function() {
+return "nom nom nom";
+};
+function Bird() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+
+Bird.prototype.eat = function() {
+return "peck peck peck";
+};
+--------------------------------------------------------------------
+
+-  Understand the Immediately Invoked Function Expression (IIFE)
+A common pattern in JavaScript is to execute a function as soon as it is declared:
+
+(function () {
+console.log("Chirp, chirp!");
+})();
+This is an anonymous function expression that executes right away, and outputs Chirp, chirp! immediately.
+---------------------------------------------------------------------------------------
+# However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+--------------------------------------------
+# [ProblemSolvingNotes]
+
+# Math.max[arr] // wrong
+# Math.max[...arr] // right it will be COMMA SEPERATED VALUES 
+---------------------
+# if i want to print one single line use [ let x = ""; and x+= blaBla]
+-----------------------------------------------
+# array.sort() works fine with string 
+## but in numbers. problem
+# it convert number to string first and then compare elements in array 
+#[solution] =>use callback function
+
+arr.sort((a,b) => a-b)
+a , b is array elements  if a-b = negative a comes first if positive b come first  if 0 do nothing
+
+#in object compare key.values 
+objectname.sort((a,b)=>key.value -key.value)
+-----------------------------------------
+# [DontChangeTheGlobalVariableJustCopyIt]
+let copy = arr // will copy with refrence
+let copy - [...arr] // will copy with values only 
+------------------------------------------------------
+# in split string to array if i wanna split from diffrent separator like , . / i can use regex
+
+--------------------------
+- [CURRING]
+
+# This is useful in your program if you can't supply all the arguments to a function at one time
+------------------------
+# if i have first class function . i call it's variable as his function with new args
+----------------------------
+[indexOf===-1] #use it if u wanna check element exist or not
+
+haystack.indexOf(neddle) === -1 # not found
+
+[inObjectsSearchWithProperty-.hasOwnProperty]
+----------------------------------------------
+
+- NORMAL OBJECT INHERITANCE :
+
+let normalObject = {
+  talk(){
+   return `talking`
+  }
+}
+let me = Object.create(normalObject) || Object.setPrototypeOf(me, normalObject)
+==============================================================================
+
+//ps
+const me = {} === const me = new Object()

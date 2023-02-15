@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "..\\..\\..\\computer science\\CS50\\cs50-projects"
+        }
+    ],
+    "launch": {
+        "version": "0.2.0",
+        "configurations": []
+    },
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "javascript"
+    }
+}

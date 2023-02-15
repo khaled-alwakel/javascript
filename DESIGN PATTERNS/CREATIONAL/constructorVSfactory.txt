@@ -1,0 +1,53 @@
+//========================== CONSTRUCTOR VS FACTORY ======================//
+function createPerson(name) {
+    return {
+        name,
+        talk() {
+            return `i am ${this.name}`
+        }
+    }
+}
+const Alice = createPerson('Alice');
+const bob = createPerson('Bob')
+Alice.talk = function() { 
+    return `hello world  i'm ${this.name}`
+}
+
+console.log(Alice.talk()) // changed
+console.log(bob.talk()) // didn't change
+
+
+* that tell me  3 things : 
+    1: now alice.talk() and bob.talk() are not the same function in memory
+    2: occupying more space in memory because every object from factory have copy of this function 
+    3: if we need to modify the logic of function in one object i have to modify it in all objects like i did with alice 
+
+//SOLUTION
+const myCoolProto = {
+    talk() {
+        return `hello, i'm ${this.name}`
+    }
+}
+
+function createPerson2(name) {
+    return Object.create(myCoolProto, {
+        name: {
+            value: name
+        }
+    })
+}
+const charlie = new createPerson2('charlie')
+console.log(charlie.talk());
+// now anyone who is created using createPerson function can access to that function and if i change the logic of that function . i don't have to change it for all objects  [ here we are not using inheritance ]
+/*=====================================================================*/
+
+// IN CONSTRUCTOR  
+// just deal with class.prototype [ here we will use inheritance ]
+Person.prototype.talkItalian = function() {
+    return `ciao, io sono ${this.name}`;
+}
+console.log(me.talkItalian())
+------------------------------------------
+* WHY WE USE FACTORY ? WHILE WE HAVE CONSTRUCTOR??
+-- simpler
+-- data privacy 

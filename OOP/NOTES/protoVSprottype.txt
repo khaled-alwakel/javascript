@@ -1,0 +1,24 @@
+- DIFFERENT BETWEEN PROTOTYPE AND  __ PROTO__
+
+ when i create and object no matter how i create it the object have a  __proto__   property
+
+ const dude = {       baseObject
+  __proto__ :{...} -> Object {
+                        // thing to be inherited 
+                        valueOf: function(),     |dude will inherit valueOf
+                        toString: function(),    |dude will inherit toString
+                        .....
+                      }
+ } 
+
+
+proto [point] to parent [object] that has all the stuff that your variable is gonna be [inheriting] from ;
+
+
+- NOTICE
+* when you look up a property on an object if javascript interpreter cannot find it there it will look on it's prototype else it will lookup on proto of the proto so on and so forth going down the chain of prototypes until it finds it 
+
+- PROTOTYPE
+* prototype doesnt belong to any object or instance it is only belong to  CONSTRUCTOR FUNCTIONS OR CLASSES that contains all the stuff that will inherited by it's instance 
+
+- THEY ARE THE SAME BUT ACCESEED FROM DIFFERENT ENDS  BOOM!

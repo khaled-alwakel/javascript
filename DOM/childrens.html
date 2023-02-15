@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Learn JavaScript</title>
+  </head>
+  <body>
+    <div>
+      <!-- Osama -->
+      Hello Div
+        <p>Hello P</p>
+        <span>Hello Span</span>
+        <span>Hello Span</span>
+        <span>Hello Span</span>
+        <!-- Comment -->
+        Hello
+      </div>
+    <script>
+        /*
+  DOM [Deal With Childrens]
+  - children
+  - childNodes
+  - firstChild
+  - lastChild
+  - firstElementChild
+  - lastElementChild
+*/
+
+let myElement = document.querySelector("div");
+
+console.log(myElement);
+console.log(myElement.children); // html collection
+console.log(myElement.children.length);
+
+console.log(myElement.children[0]); // i can access on itn innerHTML -=> do what i want 
+console.log(myElement.children[0].innerHTML); // i can access on itn innerHTML -=> do what i want 
+
+console.log(myElement.childNodes);  
+console.log(myElement.childNodes.length);
+console.log(myElement.childNodes[4]); // u can use child Nodes to know if parent has elements or not 
+
+console.log(myElement.firstChild);
+console.log(myElement.lastChild);
+
+console.log(myElement.firstElementChild);
+console.log(myElement.lastElementChild);
+    </script>
+  </body>
+</html>

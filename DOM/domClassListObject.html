@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="my-div" class="one two show test">div with many classes</div>
+    <script>
+        /*
+        DOM [Class List]
+        - classList
+        --- length
+        --- contains
+        --- item(index)
+        --- add
+        --- remove
+        --- toggle
+        */
+
+        let element = document.getElementById("my-div");
+
+        console.log(element.classList); // class list is object
+        console.log(typeof element.classList);
+        console.log(element.classList.contains("osama"));
+        console.log(element.classList.contains("show")); // class name 
+        console.log(element.classList.item("3")); // class order
+
+        element.onclick = function () {
+        element.classList.toggle("show");  // if exist it will removed and vice versa
+        };
+     
+    </script>
+</body>
+</html>

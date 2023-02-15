@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 30px;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-div" class="one two show test">div with many classes</div>
+
+    <script>
+    /*
+    DOM [Class List]
+    - classList
+    --- length
+    --- contains
+    --- item(index)
+    --- add
+    --- remove
+    --- toggle
+    */
+
+    let element = document.getElementById("my-div");
+
+    element.style.cssText="font-weight:bold;color:green;opacity:0.9"
+
+    element.style.removeProperty("color")
+    element.style.setProperty("font-size","40px","important")
+    
+    // modify external css
+    document.styleSheets[0].rules[0].style.removeProperty("line-height")
+    document.styleSheets[0].rules[0].style.setProperty("background-color","red","important")  // every class is rule
+
+    </script>
+</body>
+</html>

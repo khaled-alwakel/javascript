@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>clone me</p>
+    <script>
+        /*
+  DOM [Add Event Listener]
+  - addEventListener
+  - Use Without On
+  - Attach Multiple Events
+  - Error Test
+
+  Search
+  - Capture & Bubbling JavaScript
+  - removeEventListener
+*/
+
+let myP = document.querySelector("p");
+
+// myP.onclick = one;
+// myP.onclick = two;
+
+// function one() {
+//   console.log("Message From OnClick 1");
+// }
+// function two() {
+//   console.log("Message From OnClick 2");
+// }
+
+// window.onload = "Osama";// nothing happended
+
+// myP.addEventListener("click", function () {
+//   console.log("Message From OnClick 1 Event");
+// });
+
+// myP.addEventListener("click", one); // attach one or more event
+// myP.addEventListener("click", two);
+
+// myP.addEventListener("click", "String"); // Error
+
+myP.onclick = function () {
+  let newP = myP.cloneNode(true);
+  newP.className = "clone";
+  document.body.appendChild(newP);
+};
+
+//=========================================================================================================
+// let cloned = document.querySelector(".clone"); 
+
+// cloned.onclick = function () {
+//   console.log("Iam Cloned"); // cannot set property of Null error here coz there is no .clone  
+// };
+//================================================================================================================
+
+document.addEventListener("click", function (e) { // add event on element not exist yet [this is most used case]
+  if (e.target.className === "clone") {  // event target the element you click it will be shown on console
+    console.log("Iam Cloned"); 
+  }
+});
+    </script>
+</body>
+</html>
