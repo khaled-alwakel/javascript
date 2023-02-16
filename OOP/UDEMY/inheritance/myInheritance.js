@@ -24,7 +24,7 @@ function extend(Child, Parent) {
 }
 extend(Circle, Shape);
 
-const s = new Shape('red'); // new Shape.prototype.constructor(1) .. coz every object has it's constructor which return function which create that object 
-const c1 = new Circle(1, 'black')
-console.log(s)
-console.log(c1)
+const shape = new Shape('red'); // new Shape.prototype.constructor(1) .. coz every object has it's constructor which return function which create that object 
+const circle = new Circle(1, 'black')
+console.log(shape)
+console.log(circle)

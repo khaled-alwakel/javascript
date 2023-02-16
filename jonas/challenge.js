@@ -16,6 +16,3 @@ console.log(checkWinner(avgDolphins, avgKoalas));
 console.log(checkWinner(23, 11));
 
 /**==================== */
-
-const mark = {
-  name: "Mark
