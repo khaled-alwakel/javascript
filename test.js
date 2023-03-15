@@ -1,11 +1,5 @@
-class Car {
-  constructor(name, year) {
-    this.name = name;
-    this.year = year;
-  }
+const myArr = [1, 2, 3, 45];
+
+for (let i = 0; i < myArr.length; i++) {
+  console.log(myArr[i]);
 }
-
-const bmw = new Car("bmw", 1966);
-
-console.log(bmw);
-

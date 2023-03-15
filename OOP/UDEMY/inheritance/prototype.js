@@ -8,3 +8,4 @@ function Circle(radius) {
 const circle = new Circle(1);
 console.log(circle);
 console.log(Object.getPrototypeOf(circle)) // constructor [Circle] and constructor has it's own prototype => Object
+

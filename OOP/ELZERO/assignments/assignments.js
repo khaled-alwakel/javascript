@@ -1,6 +1,6 @@
 // assaignments 147 - 158
 
-// assignment 1 
+// assignment 1
 //----------------
 
 // function Car(name, model, price) {
@@ -8,88 +8,89 @@
 //     this.m = model;
 //     this.p = price;
 // }
-  
+
 // Needed Output
-  
+
 //   "Car One Name Is MG And Model Is 2022 And Price Is 420000"
 //   "Car Is Running Now"
 
 // solution
-class Car{
-    constructor(name,model,price){
-        this.n = name;
-        this.m = model;
-        this.p = price;
-    }
-    //methods
-    run() {
-        return `car is running now`
-    }
-    stop(){
-        return `Car Is Stopped`
-    }
+class Car {
+  constructor(name, model, price) {
+    this.n = name;
+    this.m = model;
+    this.p = price;
+  }
+  //methods
+  run() {
+    return `car is running now`;
+  }
+  stop() {
+    return `Car Is Stopped`;
+  }
 }
 
-let carOne = new Car("Mercedes", "2012", 250000);
-let carTwo = new Car("Bmw", "2010", 270000);
-let carThree = new Car("RollsRoyce", "2018", 500000);
+let Mercedes = new Car("Mercedes", "2012", 250000);
+let Bmw = new Car("Bmw", "2010", 270000);
+let RollsRoyce = new Car("RollsRoyce", "2018", 500000);
 
-console.log(`Car One Is ${carOne.n} And Model Is ${carOne.m} And Price IS ${carOne.p} `)
-console.log(carOne.run());
+console.log(
+  `Car One Is ${Mercedes.n} And Model Is ${Mercedes.m} And Price IS ${Mercedes.p} `
+);
+console.log(Mercedes.run());
 
 //----------------
 // assignment 2
 //----------------
 
 class Phone {
-    constructor(name, serial, price) {
-      this.name = name;
-      this.serial = serial;
-      this.price = price;
-    }
+  constructor(name, serial, price) {
+    this.name = name;
+    this.serial = serial;
+    this.price = price;
   }
-  
-  // Write Tablet Class Here
+}
 
-  class Tablet extends Phone{
-    constructor(name, serial, price,size){
-        super(name, serial, price);
-        this.s = size || "unknown";
-    }
+// Write Tablet Class Here
 
-    fullDetails(){
-        return `${this.name} serial is ${this.serial} And Size Is ${this.s}`
-    }
-   
+class Tablet extends Phone {
+  constructor(name, serial, price, size) {
+    super(name, serial, price);
+    this.s = size || "unknown";
   }
-  
-  let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
-  let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
-  let TabletThree = new Tablet("LG", 250450650, 650);
-  
-  console.log(`${TabletOne.fullDetails()}`);
-  // iPad Serial is 100200300 And Size Is 12.9
-  
-  console.log(`${TabletTwo.fullDetails()}`);
-  // Nokia Serial is 350450650 And Size Is 10.5
-  
-  console.log(`${TabletThree.fullDetails()}`);
-  // LG Serial is 250450650 And Size Is Unknown
 
+  fullDetails() {
+    return `${this.name} serial is ${this.serial} And Size Is ${this.s}`;
+  }
+}
+
+let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
+let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
+let TabletThree = new Tablet("LG", 250450650, 650);
+
+console.log(`${TabletOne.fullDetails()}`);
+// iPad Serial is 100200300 And Size Is 12.9
+
+console.log(`${TabletTwo.fullDetails()}`);
+// Nokia Serial is 350450650 And Size Is 10.5
+
+console.log(`${TabletThree.fullDetails()}`);
+// LG Serial is 250450650 And Size Is Unknown
 
 //----------------
 // assignment 3
 //----------------
 // Edit The Class
 class User {
-  #c
+  #c;
   constructor(username, card) {
     this.u = username;
-    this.#c = card;      
+    this.#c = card;
   }
-  get showData(){ // get here to fetch showData as property
+  get showData() {
+    // get here to fetch showData as property
     let cardText = this.#c.toString(); // toString() coz it works only with string
-    let result = cardText.match(/\d{4}/ig);
+    let result = cardText.match(/\d{4}/gi);
     return `Hello ${this.u} Your Credit Card Number  Is ${result.join("-")}`;
   }
 }
@@ -115,15 +116,15 @@ console.log(userOne.c); // Prevent Accessing To Card Property Here
 // assignment 4
 //--------------\
 // Write Your Code Here
-String.prototype.addLove = function(){
-  return `I Love ${this} Web School`
-}
+String.prototype.addLove = function () {
+  return `I Love ${this} Web School`;
+};
 
 // Do Not Edit Below
 let myStr = "Elzero";
 console.log(myStr.addLove()); // I Love Elzero Web School
 
- //-----------------
+//-----------------
 // assignment 5
 //--------------\
 
@@ -143,16 +144,16 @@ Object.defineProperties(myObj, {
     enumerable: false,
   },
   country: {
-    enumerable:false,
-  }
+    enumerable: false,
+  },
 });
 myObj.score = 500;
 
 for (let prop in myObj) {
   console.log(`${prop} => ${myObj[prop]}`);
 }
-Object.defineProperty(myObj,"id",{
-  enumerable:true
+Object.defineProperty(myObj, "id", {
+  enumerable: true,
 });
 console.log(myObj);
 
