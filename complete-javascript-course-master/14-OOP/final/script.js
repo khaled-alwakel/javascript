@@ -304,6 +304,8 @@ const Student = function (firstName, birthYear, course) {
 
 // Linking prototypes
 Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
@@ -320,8 +322,7 @@ console.log(mike instanceof Student);
 console.log(mike instanceof Person);
 console.log(mike instanceof Object);
 
-Student.prototype.constructor = Student;
-console.dir(Student.prototype.constructor);
+
 */
 
 ///////////////////////////////////////
@@ -461,24 +462,27 @@ const PersonProto = {
 
 const steven = Object.create(PersonProto);
 
+
+
 const StudentProto = Object.create(PersonProto);
+
 StudentProto.init = function (firstName, birthYear, course) {
   PersonProto.init.call(this, firstName, birthYear);
   this.course = course;
 };
 
 StudentProto.introduce = function () {
-  // BUG in video:
-  // console.log(`My name is ${this.fullName} and I study ${this.course}`);
-  
-  // FIX:
+
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
 };
+
+
 
 const jay = Object.create(StudentProto);
 jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
+
 
 
 ///////////////////////////////////////

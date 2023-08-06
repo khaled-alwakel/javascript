@@ -39,4 +39,3 @@ class UserBuilder {
 const builder = new UserBuilder("Bob");
 const user = builder.setAddress(new Address("12345", "Main St.")).build();
 console.log(user.name);
-console.log(user.age);

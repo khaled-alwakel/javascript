@@ -57,7 +57,7 @@ console.log(Person.prototype.isPrototypeOf(jonas));
 console.log(Person.prototype.isPrototypeOf(matilda));
 console.log(Person.prototype.isPrototypeOf(Person));
 
-// .prototyeOfLinkedObjects  Person.prototype should names like this LOL just to not be confused 😆
+// .prototypeOfLinkedObjects  Person.prototype should names like this LOL just to not be confused 😆
 
 // we cat set properties on prototype not just methods
 Person.prototype.species = "Homo Sapiens";
@@ -163,20 +163,20 @@ const walter = new PersonCl("Walter White", 1965);
 // PersonCl.hey();
 
 //////////////
-// Object.create
-const PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
+// * Object.create
 
+const PersonProto = {
   init(firstName, birthYear) {
     this.firstName = firstName;
     this.birthYear = birthYear;
   },
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
 };
 
 console.log("------");
-const steven = Object.create(PersonProto); // empty objct . linked to prototype (PersonProto)
+const steven = Object.create(PersonProto); // empty object . linked to prototype (PersonProto)
 console.log(steven);
 steven.name = "Steven";
 steven.birthYear = 2002;
@@ -184,6 +184,7 @@ steven.calcAge();
 console.log(steven);
 console.log(steven.__proto__ === PersonProto);
 
+// better way using init method
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
@@ -205,8 +206,9 @@ const Student = function (firstName, birthYear, course) {
 };
 //* Linking prototypes
 
-// i have to do this before make any methods in EV.prototype. coz object.create will make an empty object . so i make the empty object then assiagn methods to it
+// LINKING PROTOTYPES : i have to do this before make any methods in Student prototype. coz object.create will make an empty object . so i make the empty object then assign methods to it
 Student.prototype = Object.create(Person2.prototype);
+Student.prototype.constructor = Student;
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
@@ -223,5 +225,118 @@ console.log(mike instanceof Student);
 console.log(mike instanceof Person2);
 console.log(mike instanceof Object);
 
-Student.prototype.constructor = Student;
-console.dir(Student.prototype.constructor);
+/////////////////////////
+// Inheritance Between "Classes": Object.create
+
+const PersonProto2 = {
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+const StudentProto = Object.create(PersonProto2);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto2.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init("Jay", 2010, "Computer Science");
+jay.introduce();
+jay.calcAge();
+
+////////////////
+///////////////////////////////////////
+// Encapsulation: Protected Properties and Methods
+// Encapsulation: Private Class Fields and Methods
+
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// (there is also the static version)
+
+class Account {
+  // 1) Public fields (instances)
+
+  // 2) Private fields (instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+
+    // Protected property
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // 3) Public methods
+
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    // if (this.#approveLoan(val)) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+
+  static helper() {
+    console.log("Helper");
+  }
+
+  // 4) Private methods
+  // #approveLoan(val) {
+  _approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account("Jonas", "EUR", 1111);
+
+// acc1._movements.push(250);
+// acc1._movements.push(-140);
+// acc1.approveLoan(1000);
+
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approveLoan(100));
+
+// Chaining
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
