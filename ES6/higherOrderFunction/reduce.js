@@ -13,9 +13,8 @@
   - Array => The Current Array
 */
 
-let numbers = [10, 20, 30]
 let addition = numbers.reduce(function (acc, current, index, arr) {
-    return acc * current;
+  return acc * current;
 });
 console.log(addition);
 
@@ -40,7 +39,15 @@ console.log(add);
   - Remove Characters + Use Reduce
 */
 
-let theBiggest = ["Bla", "Propaganda", "Other", "AAA", "Battery", "Test", "Propaganda_Two"];
+let theBiggest = [
+  "Bla",
+  "Propaganda",
+  "Other",
+  "AAA",
+  "Battery",
+  "Test",
+  "Propaganda_Two",
+];
 
 let check = theBiggest.reduce(function (acc, current) {
   console.log(`Acc => ${acc}`);

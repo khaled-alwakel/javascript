@@ -1,15 +1,14 @@
 function Welcome(name) {
-    this.name = name;
+  this.name = name;
 }
-Welcome.prototype.sayHello = function() {
-    return 'Hello, ' + this.name + '!';
-}
-var welcome = new Welcome('John');
-console.log(welcome.sayHello())
-    //===================================
+Welcome.prototype.sayHello = function () {
+  return "Hello, " + this.name + "!";
+};
+var welcome = new Welcome("John");
+console.log(welcome.sayHello());
+//===================================
 
 // ===================Prototypal Inheritance======================//
-
 
 //  ChildObject.prototype = Object.create(ParentObject.prototype);
 //  ChildObject.prototype.constructor = ChildObject;
@@ -20,14 +19,14 @@ console.log(welcome.sayHello())
     You do that using the following pattern in the ChildObject constructor.
  */
 function ChildObject(value) {
-    ParentObject.call(this, value);
+  ParentObject.call(this, value);
 }
 // A complete example where the above is implemented
 
 function RoomService(name, order) {
-    // this.name will be set and made available on the scope of this function
-    Welcome.call(this, name);
-    this.order = order;
+  // this.name will be set and made available on the scope of this function
+  Welcome.call(this, name);
+  this.order = order;
 }
 // Inherit 'sayHello()' methods from 'Welcome' prototype
 RoomService.prototype = Object.create(Welcome.prototype);
@@ -36,15 +35,17 @@ RoomService.prototype = Object.create(Welcome.prototype);
 // otherwise 'constructor' property will point to 'Welcome' class
 RoomService.prototype.constructor = RoomService;
 
-RoomService.prototype.announceDelivery = function() {
-    return 'Your ' + this.order + ' has arrived!';
-}
+RoomService.prototype.announceDelivery = function () {
+  return "Your " + this.order + " has arrived!";
+};
 
-RoomService.prototype.deliverOrder = function() {
-    return this.sayHello() + ' ' + this.announceDelivery();
-}
-var delivery = new RoomService('John', 'pizza');
+RoomService.prototype.deliverOrder = function () {
+  return this.sayHello() + " " + this.announceDelivery();
+};
+var delivery = new RoomService("John", "pizza");
 console.log(delivery.sayHello());
 
-console.log(delivery.announceDelivery())
-console.log(delivery.deliverOrder())
+console.log(delivery.announceDelivery());
+console.log(delivery.deliverOrder());
+
+

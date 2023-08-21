@@ -12,7 +12,7 @@ let d = 4;
 
 let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
 
-[a = "A", b, c, d, e = "Osama"] = myFriends; // a will be ahmed not a as long as there is reference to int in array  
+[a = "A", b, c, d, e = "Osama"] = myFriends; // a will be ahmed not a as long as there is reference to int in array
 
 console.log(a);
 console.log(b);
@@ -22,7 +22,16 @@ console.log(e);
 
 // console.log(myFriends[4]);
 
-let [, y, , z] = myFriends; // if u want to skip array element   just don't type anything 
+let [, y, , z] = myFriends; // if u want to skip array element   just don't type anything
 
 console.log(y);
 console.log(z);
+
+console.log("hello ");
+
+let x = 88;
+console.log(x);
+
+let i = 0;
+
+console.log(" hello world ");

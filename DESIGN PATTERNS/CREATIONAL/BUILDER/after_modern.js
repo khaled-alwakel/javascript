@@ -19,5 +19,5 @@ class User {
 /**
  * In the above code we are assigning {age,phone,email,address} to = {} in the constructor parameters which means if nothing is passed then pass in an empty object. We can also set default values for object if nothing is set by assigning it like this {age=10,phone,email,address}.
  */
-let user = new User("Bob", { age: 40 });
+let user = new User("Bob", { age: 40, address: "Egypt" });
 console.log(user);
