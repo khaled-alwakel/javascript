@@ -40,12 +40,12 @@ console.log(Person.prototype);
 //  all functions in js including constructor functions has automatically  a property called prototype
 
 Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
+  return 2037 - this.birthYear;
 };
 
 // all objects that created through this constructor function , will inherit all the methods and properties that are defined on this prototype property
-jonas.calcAge();
-matilda.calcAge();
+console.log(jonas.calcAge());
+console.log(matilda.calcAge());
 
 //  how and why it works ? because each object has access to the methods and properties from it's prototype and the prototype of jonas and matilda  is person.prototype, we can confirm that with __proto__ property . which every object has
 console.log(jonas.__proto__);
@@ -56,8 +56,8 @@ console.log(jonas.__proto__ === Person.prototype);
 console.log(Person.prototype.isPrototypeOf(jonas));
 console.log(Person.prototype.isPrototypeOf(matilda));
 console.log(Person.prototype.isPrototypeOf(Person));
-
-// .prototyeOfLinkedObjects  Person.prototype should names like this LOL just to not be confused 😆
+console.log(Object.prototype.isPrototypeOf(Person));
+//  Person.prototype should names like this prototypeOfLinkedObjects , LOL just to not be confused 😆
 
 // we cat set properties on prototype not just methods
 Person.prototype.species = "Homo Sapiens";
@@ -124,7 +124,7 @@ class PersonCl {
 
   // so the  fullName(name) name here is equal to fullName passed to the constructor
 
-  // BUT the setter and the constructor will try to set this.fullName together at the same time and it will be and error of memory exceded. so we have to use a new property like _fullName ( as a convention ) to avoid this
+  // BUT the setter and the constructor will try to set this.fullName together at the same time and it will be and error of memory exceeded. so we have to use a new property like _fullName ( as a convention ) to avoid this
 
   set fullName(name) {
     console.log(name);
@@ -176,19 +176,21 @@ const PersonProto = {
 };
 
 console.log("------");
-const steven = Object.create(PersonProto); // empty objct . linked to prototype (PersonProto)
+const steven = Object.create(PersonProto); // empty object . linked to prototype (PersonProto) with __proto__
+console.log(steven.__proto__ === PersonProto);
+
 console.log(steven);
 steven.name = "Steven";
 steven.birthYear = 2002;
 steven.calcAge();
 console.log(steven);
-console.log(steven.__proto__ === PersonProto);
 
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
+
 /**==================================== */
-// Inheritance Between "Classes": Constructor Functions
+//* 1) Inheritance Between "Classes": Constructor Functions
 
 const Person2 = function (firstName, birthYear) {
   this.firstName = firstName;
@@ -203,10 +205,12 @@ const Student = function (firstName, birthYear, course) {
   Person2.call(this, firstName, birthYear);
   this.course = course;
 };
-//* Linking prototypes
 
-// i have to do this before make any methods in EV.prototype. coz object.create will make an empty object . so i make the empty object then assiagn methods to it
+//Linking prototypes
+
+// i have to do this before make any methods in EV.prototype. coz object.create will make an empty object . so i make the empty object then assign methods to it
 Student.prototype = Object.create(Person2.prototype);
+Student.prototype.constructor = Student;
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
@@ -223,5 +227,188 @@ console.log(mike instanceof Student);
 console.log(mike instanceof Person2);
 console.log(mike instanceof Object);
 
-Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
+
+//* 2) Inheritance Between "Classes": ES6 Classes
+
+class PersonCl2 {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  // Instance methods
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  set fullName(name) {
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static method
+  static hey() {
+    console.log("Hey there 👋");
+  }
+}
+
+class StudentCl extends PersonCl2 {
+  constructor(fullName, birthYear, course) {
+    // Always needs to happen first!
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const martha = new StudentCl("Martha Jones", 2012, "Computer Science");
+martha.introduce();
+martha.calcAge();
+//
+
+/**===================== */
+// Inheritance Between "Classes": Object.create
+
+const PersonProto2 = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const max = Object.create(PersonProto2);
+console.log(max);
+
+const StudentProto = Object.create(PersonProto2);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto2.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  // BUG in video:
+  // console.log(`My name is ${this.fullName} and I study ${this.course}`);
+
+  // FIX:
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init("Jay", 2010, "Computer Science");
+jay.introduce();
+jay.calcAge();
+
+///////////////////////////////////////
+// Encapsulation: Protected Properties and Methods
+// Encapsulation: Private Class Fields and Methods
+
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// (there is also the static version)
+
+class Account {
+  // 2) Private fields (instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+
+    // Protected property
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // 3) Public methods
+
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    // if (this.#approveLoan(val)) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+
+  static helper() {
+    console.log("Helper");
+  }
+
+  // 4) Private methods
+  // #approveLoan(val) {
+  _approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account("Jonas", "EUR", 1111);
+
+// acc1._movements.push(250);
+// acc1._movements.push(-140);
+// acc1.approveLoan(1000);
+
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approveLoan(100));
+
+// Chaining
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());

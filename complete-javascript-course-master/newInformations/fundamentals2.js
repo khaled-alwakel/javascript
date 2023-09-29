@@ -33,7 +33,7 @@ const age2 = calcAge2(1991);
 
 console.log(age1, age2);
 
-/**  what's the differnece between two of them ?
+/**  what's the difference between two of them ?
   
  * function declaration can be called before define it
  *  const age1 = calcAge1(1991);
@@ -43,7 +43,7 @@ console.log(age1, age2);
     but if do that to function expression it will be Error "cannot access age2 before initialization "
  */
 
-// arrow function was in ES6 . it's simpy special form of function expression that is shorter, and more faster to write
+// arrow function was in ES6 . it's simply special form of function expression that is shorter, and more faster to write
 
 /**============== */
 

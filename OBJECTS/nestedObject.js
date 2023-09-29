@@ -10,7 +10,8 @@ let user = {
   age: 38,
   skills: ["HTML", "CSS", "JS"],
   available: false,
-  addresses: {  // nested object 
+  addresses: {
+    // nested object
     ksa: "Riyadh",
     egypt: {
       one: "Cairo",

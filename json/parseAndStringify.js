@@ -5,7 +5,7 @@
 */
 
 // Get From Server
-const myJsonObjectFromServer = '{"Username": "Osama", "Age": 39}';
+const myJsonObjectFromServer = '{"Username": "Alice", "Age": 39}';
 console.log(typeof myJsonObjectFromServer);
 console.log(myJsonObjectFromServer);
 
@@ -15,7 +15,7 @@ console.log(typeof myJsObject);
 console.log(myJsObject);
 
 // Update Data
-myJsObject["Username"] = "Elzero";
+myJsObject["Username"] = "Bob";
 myJsObject["Age"] = 40;
 
 // Send To Server

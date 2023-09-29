@@ -452,7 +452,7 @@ Let's continue with our football betting app!
 
 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
 2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
-3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
       Odd of victory Bayern Munich: 1.33
       Odd of draw: 3.25
       Odd of victory Borrussia Dortmund: 6.5
@@ -877,7 +877,6 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
-
 
 ///////////////////////////////////////
 // Destructuring Arrays
