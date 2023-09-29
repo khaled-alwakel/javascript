@@ -379,7 +379,9 @@ const values = Object.values(openingHours);
 console.log(values);
 
 // Entire object
+
 // We Use Object.entries() Because Object Is Not Iterable .
+
 const entries = Object.entries(openingHours);
 console.log(entries);
 

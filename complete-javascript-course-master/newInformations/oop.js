@@ -56,8 +56,13 @@ console.log(jonas.__proto__ === Person.prototype);
 console.log(Person.prototype.isPrototypeOf(jonas));
 console.log(Person.prototype.isPrototypeOf(matilda));
 console.log(Person.prototype.isPrototypeOf(Person));
+<<<<<<< HEAD
 console.log(Object.prototype.isPrototypeOf(Person));
 //  Person.prototype should names like this prototypeOfLinkedObjects , LOL just to not be confused 😆
+=======
+
+// .prototypeOfLinkedObjects  Person.prototype should names like this LOL just to not be confused 😆
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
 
 // we cat set properties on prototype not just methods
 Person.prototype.species = "Homo Sapiens";
@@ -163,28 +168,33 @@ const walter = new PersonCl("Walter White", 1965);
 // PersonCl.hey();
 
 //////////////
-// Object.create
-const PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
+// * Object.create
 
+const PersonProto = {
   init(firstName, birthYear) {
     this.firstName = firstName;
     this.birthYear = birthYear;
   },
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
 };
 
 console.log("------");
+<<<<<<< HEAD
 const steven = Object.create(PersonProto); // empty object . linked to prototype (PersonProto) with __proto__
 console.log(steven.__proto__ === PersonProto);
 
+=======
+const steven = Object.create(PersonProto); // empty object . linked to prototype (PersonProto)
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
 console.log(steven);
 steven.name = "Steven";
 steven.birthYear = 2002;
 steven.calcAge();
 console.log(steven);
 
+// better way using init method
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
@@ -206,9 +216,13 @@ const Student = function (firstName, birthYear, course) {
   this.course = course;
 };
 
+<<<<<<< HEAD
 //Linking prototypes
 
 // i have to do this before make any methods in EV.prototype. coz object.create will make an empty object . so i make the empty object then assign methods to it
+=======
+// LINKING PROTOTYPES : i have to do this before make any methods in Student prototype. coz object.create will make an empty object . so i make the empty object then assign methods to it
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
 Student.prototype = Object.create(Person2.prototype);
 Student.prototype.constructor = Student;
 
@@ -227,6 +241,7 @@ console.log(mike instanceof Student);
 console.log(mike instanceof Person2);
 console.log(mike instanceof Object);
 
+<<<<<<< HEAD
 console.dir(Student.prototype.constructor);
 
 //* 2) Inheritance Between "Classes": ES6 Classes
@@ -300,15 +315,29 @@ const PersonProto2 = {
     console.log(2037 - this.birthYear);
   },
 
+=======
+/////////////////////////
+// Inheritance Between "Classes": Object.create
+
+const PersonProto2 = {
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
   init(firstName, birthYear) {
     this.firstName = firstName;
     this.birthYear = birthYear;
   },
+<<<<<<< HEAD
 };
 
 const max = Object.create(PersonProto2);
 console.log(max);
 
+=======
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
 const StudentProto = Object.create(PersonProto2);
 StudentProto.init = function (firstName, birthYear, course) {
   PersonProto2.init.call(this, firstName, birthYear);
@@ -316,10 +345,13 @@ StudentProto.init = function (firstName, birthYear, course) {
 };
 
 StudentProto.introduce = function () {
+<<<<<<< HEAD
   // BUG in video:
   // console.log(`My name is ${this.fullName} and I study ${this.course}`);
 
   // FIX:
+=======
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
 };
 
@@ -328,6 +360,10 @@ jay.init("Jay", 2010, "Computer Science");
 jay.introduce();
 jay.calcAge();
 
+<<<<<<< HEAD
+=======
+////////////////
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
 ///////////////////////////////////////
 // Encapsulation: Protected Properties and Methods
 // Encapsulation: Private Class Fields and Methods
@@ -339,6 +375,11 @@ jay.calcAge();
 // (there is also the static version)
 
 class Account {
+<<<<<<< HEAD
+=======
+  // 1) Public fields (instances)
+
+>>>>>>> e0d70c5e816ca6adca6b341e66e113c52602d587
   // 2) Private fields (instances)
   #movements = [];
   #pin;

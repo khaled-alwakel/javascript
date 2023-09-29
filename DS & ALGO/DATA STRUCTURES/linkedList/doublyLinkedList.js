@@ -128,7 +128,7 @@ class doublyLinkedList {
   }
   removeNode(index) {
     if (index < 0 || index >= this.length) return false;
-    if (index === 0) return !!this.shiftNode(); //!! bang bang to make the return is boolean instead of returning the whole list in case of unshift || push
+    if (index === 0) return !!this.shiftNode();
     if (index === this.length - 1) {
       this.popNode();
       return ` "node has been inserted at the end successfully"`; //* or i can do this instead of !!
