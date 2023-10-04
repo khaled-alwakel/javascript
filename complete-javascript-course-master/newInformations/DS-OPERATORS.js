@@ -31,3 +31,8 @@ console.log(main, secondary);
 console.log(restaurant.order(2, 0)); // ['Garlic Bread, Pizza']
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
+
+
+function pers (){
+  console.log('hello world ')
+}
