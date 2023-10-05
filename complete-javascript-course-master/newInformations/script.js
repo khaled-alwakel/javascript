@@ -1,3 +1,4 @@
+const { prototype } = require("events");
 var fs = require("fs");
 const data = JSON.parse(fs.readFileSync(`${__dirname}/test.json`));
 console.log(data);
@@ -27,3 +28,5 @@ Person2.prototype.speak = () => {
 const sam = new Person2("sam", "egypt");
 console.log(sam);
 console.log(sam.speak());
+
+

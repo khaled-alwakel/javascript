@@ -22,8 +22,6 @@ console.log(main, secondary);
 // secondary = temp;
 // console.log(main, secondary);
 
-
-
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
 
@@ -33,6 +31,34 @@ const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
 
 
-function pers (){
-  console.log('hello world ')
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  }
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
 }
+
+const bmw = new Car("BMW", 120);
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+bmw.brake();
+console.log(bmw.speedUS);
+bmw.speedUS = 60;
+console.log(bmw.speedUS);
+
+
