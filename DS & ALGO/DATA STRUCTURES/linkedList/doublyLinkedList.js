@@ -21,6 +21,8 @@ class doublyLinkedList {
       // make head and tail point at the same node. [they will inherit all things from it value and next ]
       this.head = newNode;
       this.tail = this.head;
+      console.log(this.head);
+      console.log(this.tail);
     } else {
       //* we don't traverse the whole list as long as we keeping track of the last item in the list . and said take that last item point it over to that new node. and now the tail was updated to be at the very end :)
       this.tail.next = newNode;

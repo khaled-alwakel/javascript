@@ -302,7 +302,7 @@ console.log(guests);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
-/*======================================= */
+ /*======================================= */
 
 //*  The For-of Loops
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];

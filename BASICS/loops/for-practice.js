@@ -2,7 +2,7 @@ let products = ["keyboard","mouse", "pen", "pad", "monitor"];
 
 let colors = ["red", "green", "black"];
 
-let showCount = 5;
+let showCount = products.length;
 
 document.write(`<h1>Show ${showCount} Products</h1>`);
 

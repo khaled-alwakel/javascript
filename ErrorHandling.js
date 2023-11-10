@@ -4,7 +4,7 @@ try {
   unicycle();
   console.log("End of try runs -- never reached");
 } catch (error) {
-  console.log(`Error has occured ${error.stack}`);
+  console.log(`Error has occurred ${error.stack}`);
 } finally {
   console.log("this is always run");
 }

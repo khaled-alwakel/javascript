@@ -6,12 +6,12 @@ class Node {
     this.next = null;
   }
 }
-// var first = new Node("Hi")
-// first.next = new Node("there")
-// first.next.next = new Node("how")
-// first.next.next.next = new Node("are")
+// const first = new Node("Hi");
+// first.next = new Node("there");
+// first.next.next = new Node("how");
+// first.next.next.next = new Node("are");
 // first.next.next.next.next = new Node("you");
-// console.log(first)
+// console.log(first);
 
 class SinglyLinkedList {
   constructor() {
@@ -29,6 +29,7 @@ class SinglyLinkedList {
       //* we don't traverse the whole list as long as we keeping track of the last item in the last . and said take that last item point it over  to that new last item. and now the tail was updated to be at the very end :)
       this.tail.next = newNode; // like alice.next = bob
       this.tail = newNode;
+    
     }
     this.length++; // update the length
 
@@ -155,11 +156,12 @@ class SinglyLinkedList {
   }
 }
 let list = new SinglyLinkedList();
-list.pushNode(100);
-list.pushNode(200);
-list.pushNode(300);
-list.pushNode(400);
-list.pushNode(500);
+console.log(list.pushNode(100));
+console.log(list.pushNode(200));
+console.log(list.pushNode(300));
+console.log(list.pushNode(400));
+console.log(list.pushNode(500));
+
 console.log(list.shiftNode());
 console.log(list.findNode(300));
 

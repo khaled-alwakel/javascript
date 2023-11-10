@@ -220,3 +220,116 @@ console.log([...question.entries()]);
  * 3) easy to iterate
  * 4) easy to compute size
  */
+
+/**==================== */
+//* Working With Strings - Part 1
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(`Macbook ${airline.slice(4, 7)} :)`);
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+console.log(airline.slice(-8));
+
+const checkMiddleSeat = (seat) => {
+  // B & E are middle seats
+
+  return seat.slice(-1) === "E" || seat.slice(-1) === "B"
+    ? "you got middle"
+    : "you got lucky";
+};
+
+console.log(checkMiddleSeat("11E"));
+console.log(checkMiddleSeat("14B"));
+console.log(checkMiddleSeat("23C"));
+
+// Replace String
+const priceGB = "288,97 pounds";
+const priceUS = priceGB
+  .replace("pounds", "dollars")
+  .replace(",", ".")
+  .toUpperCase();
+console.log(priceUS);
+
+const announcement =
+  "All passengers come to boarding door 23. Boarding door 23!";
+
+console.log(announcement.replace("door", "gate"));
+console.log(announcement.replaceAll("door", "gate"));
+console.log(announcement.replace(/door/g, "gate"));
+
+// Booleans
+console.log(announcement.includes("All"));
+console.log(announcement.startsWith("All"));
+console.log(announcement.startsWith("A"));
+console.log(announcement.endsWith("!"));
+
+// split method
+// announcement.split( divider string)
+console.log("a+very+nice+string".split("+"));
+console.log(announcement.split(" "));
+
+// using destructing with split
+const [firstName, lastName] = "john doe".split(" ");
+console.log(firstName, lastName);
+
+//split and join
+const newName = ["MR", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+// Example
+
+function capitalize(names) {
+  const result = [];
+  for (const name of names.split(" ")) {
+    // result.push(name[0].toUpperCase() + name.slice(1));
+    result.push(name.replace(name[0], name[0].toUpperCase()));
+  }
+  return result.join(" ");
+}
+
+console.log(capitalize("john doe"));
+console.log(capitalize("marshal mathers"));
+console.log(capitalize("lighting mcqueen"));
+
+// padding
+
+const message = "Go To Gate 23!";
+console.log(message.padStart(20, "*").padEnd(26, "*"));
+
+// masking credit card
+function maskCreditCart(number) {
+  // const str = String(number);
+  const str = number + "";
+  const lastFour = str.slice(-4);
+  return lastFour.padStart(str.length, "*");
+}
+console.log(maskCreditCart(1325965));
+console.log(maskCreditCart(132222325965));
+
+console.log(message.repeat(4));
+
+/**============================= */
+//* String Methods Practice
+
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split("+")) {
+  const [type, from, to, time] = flight.split(";");
+  const output = `${type.startsWith("_Delayed") ? "🔴" : ""}${type.replaceAll(
+    "_",
+    " "
+  )} ${getCode(from)} ${getCode(to)} (${time.replace(":", "h")})`.padStart(36);
+  console.log(output);
+}
+
+

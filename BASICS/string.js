@@ -74,7 +74,7 @@ console.log(a.substring(a.length - 5, a.length - 3)); // ch
 //=======================================================
 // substr
 console.log(a.substr(0)); // elzero web school
-console.log(a.substr(0, 6)); // el starting and how many charachter you want
+console.log(a.substr(0, 6)); // el starting and how many character you want
 console.log(a.substr(18)); // if start > length it will return empty string
 console.log(a.substr(-3)); // ool
 console.log(a.substr(-5, 2)); // ch start from -5 and just count 2

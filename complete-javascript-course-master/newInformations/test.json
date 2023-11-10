@@ -1,6 +1,10 @@
 {
-  "car": "bmw",
-  "year": 2003,
-  "sedan": true
+  "name": "alice",
+  "age": 22,
+  "hobbies": "['swimming, 'reading']",
+  "degrees": {
+    "math": 20,
+    "chemistry": 30
+  }
 }
 
