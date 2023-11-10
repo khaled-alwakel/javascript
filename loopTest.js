@@ -18,16 +18,16 @@
 //console.log(new Map (myArr.entries()))
 //
 /**========================== */
-console.log('👉️ Working With Objects');
+console.log("👉️ Working With Objects");
 
 const myObj = {
- name: "alice",
- age: 44,
- adress: 'cairo'
+  name: "alice",
+  age: 44,
+  adress: "cairo",
 };
 
-for (const key in myObj){
-    console.log(key)
+for (const key in myObj) {
+  console.log(key);
 }
 
 for (const key of Object.keys(myObj)) {
@@ -42,8 +42,7 @@ for (const [key, value] of Object.entries(myObj)) {
   console.log(`my ${key} is ${value}`);
 }
 
-
-console.log(new Map (Object.entries(myObj)))
+console.log(new Map(Object.entries(myObj)));
 
 /**========================== */
 //console.log('👉️ Working With Maps');
@@ -59,6 +58,5 @@ console.log(new Map (Object.entries(myObj)))
 //for (const [key, value] of myMap){
 //    console.log(key, value)
 //}
-
 
 //======================

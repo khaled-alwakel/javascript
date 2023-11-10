@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "alice",
   "age": 22,
   "hobbies": "['swimming, 'reading']",
@@ -8,3 +9,32 @@
   }
 }
 
+=======
+  "name": "test",
+  "version": "1.0",
+  "description": "test",
+  "depends": ["base"],
+  "data": [
+    "security/ir.model.access.csv",
+    "views/test.xml",
+    "views/test2.xml",
+    "views/test3.xml",
+    "views/test4.xml",
+    "views/test5.xml",
+    "views/test6.xml",
+    "views/test7.xml",
+    "views/test8.xml",
+    "views/test9.xml",
+    "views/test10.xml",
+    "views/test11.xml",
+    "views/test12.xml",
+    "views/test13.xml",
+    "views/test14.xml",
+    "views/test15.xml",
+    "views/test16.xml",
+    "views/test17.xml",
+    "views/test18.xml",
+    "views/test19.xml"
+  ]
+}
+>>>>>>> 6265ca4a6deb5823b594b315585172ed760b3e92

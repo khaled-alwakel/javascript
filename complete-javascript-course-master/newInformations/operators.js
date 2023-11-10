@@ -1,4 +1,5 @@
 "use strict";
+
 // const openingHours = {
 //   thu: {
 //     open: 12,
@@ -391,3 +392,7 @@ for (const entry of entries) console.log(entry);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+
+
+
+
