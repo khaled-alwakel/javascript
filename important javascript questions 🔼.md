@@ -73,5 +73,94 @@ That way, you can explicitly check for the value null to determine if the variab
 if (car != null) {  // do something with car}
 ```
 
+<div align="right">
+
+<b><a href="#">↥ back to top</a></b>
+
+</div>
+
+## What does the && operator do ?
+
+The `&&` or **Logical AND** operator finds the first _falsy_ expression in it’s operands and returns it and if it does not find any _falsy_ expression it returns the last expression
+
+It make short circuting to prevent the unnecassary work 
+
+```js
+console.log(true && 44 && false && true ) // false
+console.log(true && 44 && 'last item') // 'last item'
+
+```
+<div align="right">
+
+<b><a href="#">↥ back to top</a></b>
+
+</div>
+## What does the || operator do ?
+
+The `||` or **Logical OR** operator finds the first _truthy_ expression in its operands and returns it. This too employs short-circuiting to prevent unnecessary work.
+
+```js
+console.log(false || 44 || false || true ) // 44
+console.log(true || 'last item') // true
+
+```
+
+<div align="right">
+
+<b><a href="#">↥ back to top</a></b>
+
+</div>
+
+## What is the different between == and ===
+
+==  or `abstract equality ` operator It compares values  after ` coercion `
+_coercion_ is the process of converting a value  to another type. It happend automatically by js 
+Engine for the sake of comparison 
+
+And the === `strict equality ` compares by value and type `without coercion`
+
+```js
+console.log(4 == 4) // true
+console.log(4 == '4') // true
+console.log(4 =='3') // false 
+
+console.log(2 === "2") // false
+console.log(2 === 2) // true
+```
+
+<div align="right">
+
+<b><a href="#">↥ back to top</a></b>
+
+</div>
+##  Why does it return **false** when comparing two similar objects in JavaScript?
+
+Look at the example below.  
+
+```
+let car1 = { name: 'bmw' };
+let car2 = { name : 'bmw' };
+let car3 = car1 ;
+
+console.log(car1 === car2); // false
+console.log(car1 === car3); // true 
+```
+
+**JavaScript** compares _objects_ and _primitives_ differently.
+In _primitives_ it compares them by **value**
+while in _objects_ it compares them by **reference**
+
+or the **address in memory heap  where the objects are  stored**. 
+
+Ps: it’s not pure REFERENCE because it’s actually store address in memory stack  with a value and that value points to a place in memory heap 
+
+That's why the first `console.log` statement returns `false` and the second `console.log` statement returns `true`. `car1` and `car3` have the same reference and `car1` and `car2` are not.
+
+<div align="right">
+
+<b><a href="#">↥ back to top</a></b>
+
+</div>
+
 Happy coding, see you later 😀
 
