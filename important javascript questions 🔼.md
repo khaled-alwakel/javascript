@@ -152,7 +152,7 @@ while in _objects_ it compares them by **reference**
 
 or the **address in memory heap  where the objects are  stored**. 
 
-Ps: it’s not pure REFERENCE because it’s actually store address in memory stack  with a value and that value points to a place in memory heap 
+Ps: it’s not pure REFERNCE because it’s actually store adress in memory stack  whith a value and that value points to a place in memory heap 
 
 That's why the first `console.log` statement returns `false` and the second `console.log` statement returns `true`. `car1` and `car3` have the same reference and `car1` and `car2` are not.
 
