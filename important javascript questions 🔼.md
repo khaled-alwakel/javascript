@@ -133,26 +133,29 @@ console.log(2 === 2) // true
 <b><a href="#">↥ back to top</a></b>
 
 </div>
+
 ##  Why does it return **false** when comparing two similar objects in JavaScript?
 
 Look at the example below.  
 
-```
+```js
 let car1 = { name: 'bmw' };
 let car2 = { name : 'bmw' };
 let car3 = car1 ;
 
 console.log(car1 === car2); // false
 console.log(car1 === car3); // true 
+
 ```
 
-**JavaScript** compares _objects_ and _primitives_ differently.
+JavaScript compares _objects_ and _primitives_ differently.
+
 In _primitives_ it compares them by **value**
 while in _objects_ it compares them by **reference**
 
 or the **address in memory heap  where the objects are  stored**. 
 
-Ps: it’s not pure REFERNCE because it’s actually store adress in memory stack  whith a value and that value points to a place in memory heap 
+Ps: it’s not pure REFERENCE because it’s actually store address in memory stack  with a value and that value points to a place in memory heap 
 
 That's why the first `console.log` statement returns `false` and the second `console.log` statement returns `true`. `car1` and `car3` have the same reference and `car1` and `car2` are not.
 
