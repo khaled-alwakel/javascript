@@ -95,6 +95,7 @@ console.log(true && 44 && 'last item') // 'last item'
 <b><a href="#">↥ back to top</a></b>
 
 </div>
+
 ## What does the || operator do ?
 
 The `||` or **Logical OR** operator finds the first _truthy_ expression in its operands and returns it. This too employs short-circuiting to prevent unnecessary work.
@@ -165,5 +166,5 @@ That's why the first `console.log` statement returns `false` and the second�
 
 </div>
 
-Happy coding, see you later 😀
+
 
