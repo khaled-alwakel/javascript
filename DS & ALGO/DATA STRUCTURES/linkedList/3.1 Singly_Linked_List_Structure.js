@@ -6,12 +6,7 @@ class Node {
     this.next = null;
   }
 }
-// const first = new Node("Hi");
-// first.next = new Node("there");
-// first.next.next = new Node("how");
-// first.next.next.next = new Node("are");
-// first.next.next.next.next = new Node("you");
-// console.log(first);
+
 
 class SinglyLinkedList {
   constructor() {
@@ -19,6 +14,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   pushNode(value) {
     let newNode = new Node(value);
     if (!this.head) {
@@ -29,7 +25,7 @@ class SinglyLinkedList {
       //* we don't traverse the whole list as long as we keeping track of the last item in the last . and said take that last item point it over  to that new last item. and now the tail was updated to be at the very end :)
       this.tail.next = newNode; // like alice.next = bob
       this.tail = newNode;
-    
+
     }
     this.length++; // update the length
 
@@ -103,6 +99,7 @@ class SinglyLinkedList {
       return ` value has been changed`;
     } else return `Invalid Node`;
   }
+
   insertNode(index, value) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return !!this.unShiftNode(value); //!! bang bang to make the return is boolean instead of returning the whole list in case of unshift || push
@@ -158,11 +155,16 @@ class SinglyLinkedList {
 let list = new SinglyLinkedList();
 console.log(list.pushNode(100));
 console.log(list.pushNode(200));
-console.log(list.pushNode(300));
-console.log(list.pushNode(400));
-console.log(list.pushNode(500));
+// console.log(list.pushNode(300));
+// console.log(list.pushNode(400));
+// console.log(list.pushNode(500));
 
-console.log(list.shiftNode());
-console.log(list.findNode(300));
+// console.log(list.shiftNode());
+// console.log(list.findNode(300));
 
-console.log(list);
+// console.log(list);
+
+
+function* name(params) {
+  if params === 'o' return 'hi'
+}

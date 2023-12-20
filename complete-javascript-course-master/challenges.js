@@ -277,24 +277,24 @@
 //
 //
 
+const checkDogs = function (dogsJulia, dogsKate) {
+  // 1)
+  const dogsJuliaCorrected = dogsJulia; // shallow copy is good practice to NOT mutate the original parameter
+  dogsJuliaCorrected.splice(0, 1);
+  dogsJuliaCorrected.splice(-2);
+  const dogs = dogsJuliaCorrected.concat(dogsKate);
+  console.log(dogs);
 
-const checkDogs = function (dogsJulia, dogsKate){
-    // 1)
-    const dogsJuliaCorrected = dogsJulia // shallow copy is good practice to NOT mutate the original parameter
-    dogsJuliaCorrected.splice(0,1)
-    dogsJuliaCorrected.splice(-2)
-    const dogs = dogsJuliaCorrected.concat(dogsKate)
-    console.log(dogs)
-
-    // 2)
-    dogs.forEach(function(age, index){
-    age >= 3?
-        console.log(`Dog number ${index+1} is an adult, and is ${age} years old`):
-        console.log("Dog number 2 is still a puppy 🐶")
-    })
-
-}
- checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+  // 2)
+  dogs.forEach(function (age, index) {
+    age >= 3
+      ? console.log(
+          `Dog number ${index + 1} is an adult, and is ${age} years old`
+        )
+      : console.log("Dog number 2 is still a puppy 🐶");
+  });
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 // 3)
 // const calcAverageHumanAge = function (ages){
@@ -306,13 +306,15 @@ const checkDogs = function (dogsJulia, dogsKate){
 //    console.log(average)
 // }
 
- // 4)
- const calcAverageHumanAge = (ages)=> ages.map(age => age<=2 ? 2*age : 16+age*4).filter(age => age >=18).reduce ((acc, adultAge) => acc+adultAge)/adults.length
+// 4)
+const calcAverageHumanAge = (ages) =>
+  ages
+    .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter((age) => age >= 18)
+    .reduce((acc, adultAge) => acc + adultAge) / adults.length;
 
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 
-<<<<<<< HEAD
-console.log( calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]))
-=======
 console.log(
   `The Bill was ${bill}, The Tip was ${tip}, And The Total Value ${bill + tip}`
 );
@@ -413,5 +415,3 @@ tesla.chargeBattery(90);
 console.log(tesla.accelerate());
 
 /**----------------------------- */
-
->>>>>>> 6265ca4a6deb5823b594b315585172ed760b3e92

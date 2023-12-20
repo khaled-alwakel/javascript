@@ -1,26 +1,26 @@
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: "Jonas Schmedtmann",
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: "Jessica Davis",
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
+  owner: "Steven Thomas Williams",
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
+  owner: "Sarah Smith",
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
@@ -28,15 +28,12 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //console.log(...movements)
-
 
 // 👉️ The new at Method
 //console.log(movements[0]);
 //console.log(movements.at(0));
-
 
 // 👉️ Looping Arrays: forEach
 
@@ -57,7 +54,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
 //  }
 //});
-
 
 // 👉️ forEach With Maps and Sets
 
@@ -101,7 +97,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //const firstWithdrawalIndex = movements.findIndex(mov => mov < 0);
 //console.log(`firstWithdrawal is ${firstWithdrawal}, and it is in index number ${firstWithdrawalIndex} in movements array `)
 
-
 // some and every
 //console.log(movements);
 //
@@ -117,7 +112,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // EVERY
 //console.log(movements.every(mov => mov > 0));
 
-
 // Separate callback
 //const deposit = mov => mov > 0;
 //
@@ -126,31 +120,30 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //console.log(movements.filter(dummy));
 
 // flat and flatMap
-//const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
-//console.log(arr)
-//console.log(arr.flat());
-//
-//const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
-//console.log(arrDeep)
-//console.log(arrDeep.flat(2));
-//
-//
-//const overalBalance = accounts
-//  .map(acc => acc.movements)
-//  .flat()
-//  .reduce((acc, mov) => acc + mov, 0);
-//console.log(overalBalance);
-//
-// flatMap
-//const overalBalance2 = accounts
-//  .flatMap(acc => acc.movements)
-//  .reduce((acc, mov) => acc + mov, 0);
-//console.log(overalBalance2);
-//
-//const overalBalance3 = accounts
-//  .map(acc => acc.movements)
-//  .reduce((acc, mov) => acc + mov, 0);
-//console.log(overalBalance3);
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+
+console.log(arrDeep.flat(2));
+
+const overallBalance = accounts
+  .map((acc) => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+// flatMap;
+const overallBalance2 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
+
+const overallBalance3 = accounts
+  .map((acc) => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance3);
 
 // Sorting Arrays
 

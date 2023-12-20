@@ -31,3 +31,6 @@ for (let value of generateNumbers()) {
 for (let value of generator) {
   console.log(value); // undefined
 }
+
+
+

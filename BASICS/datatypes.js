@@ -13,7 +13,7 @@ console.log(typeof "khaled");
 console.log(typeof 4000);
 console.log(typeof 33.55);
 console.log(typeof [10, 15, 17]);
-console.log(typeof ["od", "dd", "rr"]);
+console.log(typeof ["od", "dd", "rr",33]);
 console.log(typeof { name: "khaled", age: 30, city: "tanta" });
 console.log(typeof true);
 console.log(typeof false);

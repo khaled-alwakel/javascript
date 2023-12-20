@@ -2,6 +2,7 @@
  console.log(today);
 
  console.log(new Date("07 24 1984"));
+ console.log(new Date("07-24-1984"));
  // year, month, day, hour, minute, second
  console.log(new Date(2024, 0, 1, 5, 2, 3));
 
@@ -15,6 +16,7 @@
 
  console.log(Date.now());
 
+
  // Working with dates
  const future = new Date(2030, 0, 13, 5, 2);
  console.log(future);
@@ -26,12 +28,13 @@
  console.log(future.getMinutes());
  console.log(future.getSeconds());
 
+console.log('==> toUTCString')
  console.log(future.toISOString());
  console.log(future.toUTCString());
 
  // working with  the time stamp
  console.log(future.getTime()); // date in  melliseconds
- console.log(new Date(1894503720000));
+ console.log(new Date(1451001600000));
 
 
  future.setFullYear("2055");

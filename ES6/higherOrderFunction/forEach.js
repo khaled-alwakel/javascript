@@ -22,11 +22,9 @@ allLis.forEach(function (ele) {
       ele.classList.remove("active");
     });
     // Add Active Class To This Element
-    // console.log(this) // it will print the element which has been clicked
+    console.log(this) // it will print the element which has been clicked
     this.classList.add("active");
-    // Hide All Divs
-    allDivs.forEach(function (ele) {
-      ele.style.display = "none";
-    });
+    
+  
   };
 });

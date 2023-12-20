@@ -9,9 +9,12 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s) {
-  let textArray = s.split(" ");
-  textArray = textArray.filter((ele) => ele );
-  return textArray[textArray.length - 1].length;
+  // let textArray = s.split(" ");
+  // textArray = textArray.filter((ele) => ele );
+  // return textArray[textArray.length - 1].length;
+
+  return s.trim().split(" ").pop().length;
+
 };
 console.log(lengthOfLastWord("hello world    "));
 

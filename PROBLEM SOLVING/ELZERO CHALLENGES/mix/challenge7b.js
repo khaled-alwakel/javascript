@@ -65,3 +65,4 @@ if (num4 - (num1 + num3) + num2 === 21) {
 } else {
   console.log("False");
 }
+}
