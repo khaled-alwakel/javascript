@@ -1,10 +1,18 @@
 const horse = {
-  name: "Bou",
+  firstName: "Bou",
   size: "Large",
   skills: ["Jousting", "Racing"],
   age: 7,
 };
 
 // instead of concat use this
-const { name, size, skills } = horse;
-console.log(`${name} is a ${size} horse and skilled at ${skills.join(" & ")}`);
+const { firstName, size, skills } = horse;
+console.log(`${firstName} is a ${size} horse and skilled at ${skills.join(" & ")}`);
+
+
+class Home {
+  constructor(payment, bank){
+    this.payment = payment;
+    this.bank = bank
+  }
+}

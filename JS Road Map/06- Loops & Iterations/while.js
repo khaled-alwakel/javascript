@@ -27,10 +27,8 @@ let input = "3nn3#e"
 
 function include(string, searchValue) {
     for (let i = 0; i < string.length; i++){
-        if (string[i] === searchValue) {
-            return ("true");
+        if (string[i] === searchValue) return ("true");
+        return ("false");
     }
-    return ("false");
-}
 }
 console.log(include(input,"3"))

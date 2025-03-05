@@ -12,6 +12,7 @@ function calculateTotal(items, { shipping = SHIPPING_DEFAULT, discount = 0 } = {
   return itemCost * discountRate * TAX_RATE + shipping
 }
 
+
 const testItems = [
   { price: 15, quantity: 2 },
   { price: 20, quantity: 1 },

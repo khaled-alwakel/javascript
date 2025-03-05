@@ -8,7 +8,7 @@ function calculateTotal(items, options = {}) {
   items.forEach(item => {
     total += item.price * item.quantity
   })
-  total = total - total * (options.discount || 0)
+  total = total - total * (options.discount || 0) // discount before tax
   total = total * TAX_RATE
   if (options.shipping !== 0) {
     total = total + (options.shipping || SHIPPING_DEFAULT)
