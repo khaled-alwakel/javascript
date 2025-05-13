@@ -6,7 +6,7 @@ class Student {
     this.tardies = 0;
     this.scores = [];
   }
-  
+
   fullName() {
     return `Your full name is ${this.firstName} ${this.lastName}`;
   }
@@ -34,11 +34,11 @@ class Student {
 let firstStudent = new Student("Colt", "Steele", 1);
 
 console.log(firstStudent);
-firstStudent.addScore(13)
-firstStudent.addScore(33)
-firstStudent.addScore(121)
+firstStudent.addScore(13);
+firstStudent.addScore(33);
+firstStudent.addScore(121);
 console.log(firstStudent);
 
 console.log(firstStudent.calculateAverage());
 
-// console.log(firstStudent.EnrollStudents()) //    be an error, because of the static method 
+// console.log(firstStudent.EnrollStudents()) //    be an error, because of the static method
